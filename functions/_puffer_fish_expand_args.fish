@@ -3,9 +3,9 @@ function _puffer_fish_expand_args
       case '!'
         set -l prev_cmd (history | head -n 1)
         set -l prev_args (string split ' ' $prev_cmd)
-        set -e prev_args[1]  # Remove command name
+        set -e prev_args[1]  # remove command name
         set -l arg_str (string join ' ' $prev_args)
-        # Replace !* with all arguments
+        # replace !* with all arguments
         commandline -t ""
         commandline -i $arg_str
       case '*'
