@@ -1,4 +1,9 @@
 function _puffer_fish_expand_args
+    set -l current_token (commandline -t)
+    if not test (count $current_token) -eq 1
+        commandline -i '*'
+        return
+    end
     switch (commandline -t)
       case '!'
         set -l prev_cmd (history | head -n 1)
